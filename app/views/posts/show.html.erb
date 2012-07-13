@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<%= render @post %>
+
+<div class='comments'>
+  <h2>Comments</h2>
+
+  <% if true or @post.comments.length > 0 %>
+    <% @post.comments.each do |comment| %>
+      <div class='comment'>
+    	  <p class="commentAuthor"><%= comment.author %></p>
+    	  <p class="commentContent"><%= comment.content %></p>
+        <div class='commentDetails'>
+          <%= link_to 'Delete', [@post, comment], :method => :delete %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+  	<p>Be the first to comment!</p>
+  <% end %>
+
+  <h3>Add A Comment</h3>
+
+  <%= form_for [@post, @post.comments.build] do |f| %>
+    <div class="field">
+    	<%= f.label :author %>
+    	<%= f.text_field :author %>
+    </div>
+    <div class="field">
+     	<%= f.label :content %>    </div>
+     	<%= f.text_area :content, :size => '80x10' %> <div class="field">
+    </div>
+    <div class="actions">
+    	<%= f.submit %>
+    </div>
+  <% end %>
+</div>
+

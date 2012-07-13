@@ -1,0 +1,15 @@
+
+<div class="post">
+  <h1><%= link_to post.title ,post %></h1>
+  <div class="postContent">
+  	<%= cleanify_html post[:content] %>
+  </div>
+  <div class="postDetails">
+  	Posted by <%= post.user.name %>
+    <%= link_to 'Permalink', post %>
+    <% if logged_in == post.user %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post, :method => :delete %>
+    <% end %>
+  </div>
+</div>

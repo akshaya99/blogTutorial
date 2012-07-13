@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class='form'>
+	<%= form_tag do %>
+		<div class='field'>
+			<label for='user_name'>User Name:</label>
+			<%= text_field_tag :user_name, params[:user_name] %>
+		</div>
+		<div class='field'>
+			<label for='password_plain'>Password:</label>
+			<%= password_field_tag :password_plain, params[:password_plain] %>
+		</div>
+		<div>
+			<%= submit_tag "Login" %>
+		</div>
+	<% end %>
+</div>
+
+<div>
+	<%= link_to 'Register', :new_user %>
+</div>
